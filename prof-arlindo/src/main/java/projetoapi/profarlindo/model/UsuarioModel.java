@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 @Entity(name = "usuario")
 public class UsuarioModel {
-//
+// //
 
     @Id
     public Integer codigo;

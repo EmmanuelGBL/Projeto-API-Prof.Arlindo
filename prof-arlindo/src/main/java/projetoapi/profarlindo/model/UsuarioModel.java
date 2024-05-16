@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity(name = "usuario")
+
 public class UsuarioModel {
 // //
 

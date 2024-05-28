@@ -1,6 +1,8 @@
 package projetoapi.profarlindo.model;
 import java.time.LocalDate;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity(name = "funcionario")
 
@@ -36,6 +38,13 @@ public class FuncionarioModel {
     @Column
     public String comentarios;
 
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
 
     public String getDepartamento() {
         return departamento;
@@ -75,14 +84,6 @@ public class FuncionarioModel {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Integer getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
     }
 
     public String getNome() {

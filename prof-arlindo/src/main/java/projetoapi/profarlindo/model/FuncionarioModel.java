@@ -38,6 +38,7 @@ public class FuncionarioModel {
     @Column
     public String comentarios;
 
+
     public Integer getCodigo() {
         return codigo;
     }

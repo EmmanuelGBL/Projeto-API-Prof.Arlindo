@@ -2,6 +2,7 @@ package projetoapi.profarlindo.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import projetoapi.profarlindo.model.UsuarioModel;

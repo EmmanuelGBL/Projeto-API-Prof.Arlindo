@@ -9,6 +9,6 @@ public class StatusController {
 
     @GetMapping(path = "/api/status")
     public String status() {
-        return "Online, API FUNCIONANDO!!";
+        return "Online, API FUNCIONANDO PERFEITAMENTE!!";
     }
 }

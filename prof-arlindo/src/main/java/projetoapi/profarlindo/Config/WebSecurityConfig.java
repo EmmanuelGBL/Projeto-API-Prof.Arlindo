@@ -1,5 +1,4 @@
-package config;
-
+package projetoapi.profarlindo.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +16,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers(HttpMethod.POST,"/api/user/**").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/funcionario/**").permitAll()
                         .anyRequest()
                         .authenticated());
 

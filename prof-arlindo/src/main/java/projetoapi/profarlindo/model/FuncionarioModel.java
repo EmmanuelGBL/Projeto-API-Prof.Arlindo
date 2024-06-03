@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity(name = "funcionario")
-
 public class FuncionarioModel {
 
     @Id
@@ -14,7 +13,7 @@ public class FuncionarioModel {
     @Column
     public String nome;
 
-    @Column
+    @Column(nullable = false)
     public String email;
 
     @Column
@@ -30,15 +29,12 @@ public class FuncionarioModel {
     public String departamento;
 
     @Column
-    public LocalDate data;
-
-    @Column
     public String avaliacao;
 
     @Column
     public String comentarios;
 
-
+    // Getters e Setters
     public Integer getCodigo() {
         return codigo;
     }
@@ -47,36 +43,12 @@ public class FuncionarioModel {
         this.codigo = codigo;
     }
 
-    public String getDepartamento() {
-        return departamento;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -87,19 +59,36 @@ public class FuncionarioModel {
         this.email = email;
     }
 
-    public String getNome() {
-        return nome;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public LocalDate getData() {
-        return data;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
     public String getAvaliacao() {
@@ -118,5 +107,5 @@ public class FuncionarioModel {
         this.comentarios = comentarios;
     }
 
-}
 
+}

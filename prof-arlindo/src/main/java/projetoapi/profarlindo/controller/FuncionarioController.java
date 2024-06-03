@@ -1,12 +1,15 @@
 package projetoapi.profarlindo.controller;
 
 
-//import Services.FuncionarioService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import projetoapi.profarlindo.model.FuncionarioModel;
 import projetoapi.profarlindo.model.repository.FuncionarioRepository;
+
+import java.util.Optional;
 //import Error.ResourceNotFoundException;
 
 @RestController
@@ -15,17 +18,35 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioRepository repository;
 
-    @GetMapping(path = "/api/funcionario/{id}")
-    public ResponseEntity consultar (@PathVariable("id") Integer id) {
-        return repository.findById(id)
-                .map(record -> ResponseEntity.ok().body(record))
-                .orElse(ResponseEntity.notFound().build());
+    @GetMapping(path = "/api/funcionario/{codigo}")
+    private ResponseEntity consultar(@PathVariable("codigo") String codigo) {
+        try {
+            Integer codigoInt = Integer.parseInt(codigo);
+            Optional<FuncionarioModel> funcionario = repository.findById(codigoInt);
+            if (funcionario.isPresent()) {
+                return ResponseEntity.ok().body(funcionario.get());
+            } else {
+                String mensagemErro = "Funcionário com código " + codigoInt + " não foi encontrado.";
+                return ResponseEntity.status(404).body(mensagemErro);
+            }
+        } catch (NumberFormatException e) {
+            String mensagemErro = "O parâmetro fornecido inválido.";
+            return ResponseEntity.status(400).body(mensagemErro);
+        }
     }
 
     @PostMapping(path = "/api/funcionario/salvar")
-    public FuncionarioModel salvar(@RequestBody FuncionarioModel funcionario) {
-        return repository.save(funcionario);
+    private ResponseEntity<?> salvar(@RequestBody FuncionarioModel funcionario) {
+
+        if (funcionario.getEmail() == null || funcionario.getEmail().isEmpty()) {
+            return ResponseEntity.status(400).body("O campo email é obrigatório.");
+        }
+        return ResponseEntity.status(201).body(repository.save(funcionario));
     }
+
+
+
+}
 
     //@GetMapping("/api/funcionario/{id}")
     // public ResponseEntity<FuncionarioModel> getFuncionario(@PathVariable Integer id) {
@@ -36,7 +57,7 @@ public class FuncionarioController {
     //     return ResponseEntity.ok(funcionario);
     // }
 
-}
+
 
 
 

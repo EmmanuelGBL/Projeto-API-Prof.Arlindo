@@ -4,15 +4,14 @@ package projetoapi.profarlindo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import projetoapi.profarlindo.model.FuncionarioModel;
 import projetoapi.profarlindo.model.repository.FuncionarioRepository;
-
 import java.util.Optional;
-//import Error.ResourceNotFoundException;
+
 
 @RestController
+@RequestMapping("api")
 public class FuncionarioController {
 
     @Autowired
@@ -44,18 +43,7 @@ public class FuncionarioController {
         return ResponseEntity.status(201).body(repository.save(funcionario));
     }
 
-
-
 }
-
-    //@GetMapping("/api/funcionario/{id}")
-    // public ResponseEntity<FuncionarioModel> getFuncionario(@PathVariable Integer id) {
-    //     FuncionarioModel funcionario = repository.getFuncionarioById(id);
-    //     if (funcionario == null) {
-    //         throw new ResourceNotFoundException("Funcionário com ID " + id + " não encontrado");
-    //     }
-    //     return ResponseEntity.ok(funcionario);
-    // }
 
 
 

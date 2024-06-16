@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StatusController {
 
     @GetMapping(path = "/api/status")
-    public String status() {
+    private String status() {
         return "Online, API FUNCIONANDO PERFEITAMENTE!!";
     }
 }

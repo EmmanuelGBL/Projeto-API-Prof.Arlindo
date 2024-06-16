@@ -3,7 +3,6 @@ import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import projetoapi.profarlindo.Services.FuncionarioRequestDTO;
 
 @Entity(name = "funcionarioModel")
 public class FuncionarioModel {
@@ -34,18 +33,6 @@ public class FuncionarioModel {
 
     @Column
     public String comentarios;
-
-    public FuncionarioModel(Integer codigo, String nome, String email, String telefone, String endereco, String cargo, String departamento, String avaliacao, String comentarios) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.cargo = cargo;
-        this.departamento = departamento;
-        this.avaliacao = avaliacao;
-        this.comentarios = comentarios;
-    }
 
     // Getters e Setters
     public Integer getCodigo() {

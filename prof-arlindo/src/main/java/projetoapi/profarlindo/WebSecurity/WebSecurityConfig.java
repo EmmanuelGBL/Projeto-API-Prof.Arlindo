@@ -25,7 +25,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/funcionario/**").authenticated() // Protege todos os métodos do endpoint /funcionario
+                        .requestMatchers("/api/**").authenticated() // Protege todos os métodos do endpoint /funcionario
                         .anyRequest().permitAll()
                 )
                 .httpBasic()

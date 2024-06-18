@@ -1,5 +1,8 @@
 package projetoapi.profarlindo.WebSecurity;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,6 +23,12 @@ public class WebSecurityConfig {
     public WebSecurityConfig(ErrorMessage errorMessage) {
         this.errorMessage = errorMessage;
     }
+
+    @Operation(description = "Permissões de acesso ao banco de dados")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "403", description = "Error de autorização, nao possui permissao"),
+            @ApiResponse(responseCode = "200", description = "Permissao autorizada e poderá acessar todo o banco"),
+    })
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

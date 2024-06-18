@@ -76,6 +76,12 @@ public class FuncionarioController {
                 FuncionarioModel funcionarioExistente = funcionario.get();
                 funcionarioExistente.setNome(funcionarioAtualizado.getNome());
                 funcionarioExistente.setEmail(funcionarioAtualizado.getEmail());
+                funcionarioExistente.setTelefone(funcionarioAtualizado.getTelefone());
+                funcionarioExistente.setEndereco(funcionarioAtualizado.getEndereco());
+                funcionarioExistente.setCargo(funcionarioAtualizado.getCargo());
+                funcionarioExistente.setDepartamento(funcionarioAtualizado.getDepartamento());
+                funcionarioExistente.setAvaliacao(funcionarioAtualizado.getAvaliacao());
+                funcionarioExistente.setComentarios(funcionarioAtualizado.getComentarios());
                 // Adicione outros campos conforme necessário
 
                 // Salvar e retornar o funcionário atualizado
